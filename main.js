@@ -134,7 +134,10 @@ const foodList = [
 
 const vegana = foodList.filter(comida => comida.isVeggie === true);
 console.log(vegana);
-
+const veganaFrase = vegana.map((comida) => {
+    return `Que rico ${comida.name} me voy a comer!`
+})
+console.log(veganaFrase);
 
 //5
 
@@ -146,3 +149,126 @@ const multiplicacion = numeros.reduce(function callback(valorAnterior, valorActu
 });
 
 console.log(multiplicacion);
+
+
+//Extras
+
+const staff = [
+    {
+        name: "Pepe",
+        role: "The Boss",
+        hobbies: ["leer", "ver pelis"],
+    },
+    {
+        name: "Ana",
+        role: "becaria",
+        hobbies: ["nadar", "bailar"],
+    },
+    {
+        name: "Luis",
+        role: "programador",
+        hobbies: ["dormir", "comprar"],
+    },
+    {
+        name: "Carlos",
+        role: "secretario",
+        hobbies: ["futbol", "queso"],
+    },
+];
+
+
+// Resultado esperado
+/*
+    [
+      'Pepe es TheBoss y le gusta leer y ver pelis',
+      'Ana es becaria y le gusta nadar y bailar',
+      'Luis es programador y le gusta dormir y comprar',
+      'Ana es becaria y le gusta nadar y bailar',
+      'Carlos es secretario y le gusta fútbol y queso'
+    ]
+ */
+
+
+const staffFrases = staff.map((persona) => {
+    return `${persona.name} es ${persona.role} y le gusta ${persona.hobbies[0]} y ${persona.hobbies[1]}`
+})
+
+console.log(staffFrases);
+
+const foodList2 = ["Pizza", "Ramen", "Paella", "Entrecot"];
+//Resultado esperado
+/* [
+    'Como soy de Italia, amo comer Pizza',
+    'Como soy de Japón, amo comer Ramen',
+    'Como soy de Valencia, amo comer Paella',
+    'Aunque no como carne, el Entrecot es sabroso'
+   ]
+*/
+
+const comidaFrases = foodList2.map((comida) => {
+    switch (comida) {
+        case "Pizza":
+            return 'Como soy de Italia, amo comer Pizza'
+        case "Ramen":
+            return 'Como soy de Japón, amo comer Ramen'
+        case "Paella":
+            return 'Como soy de Valencia, amo comer Paella'
+        case "Entrecot":
+            return 'Aunque no como carne, el Entrecot es sabroso'
+        default:
+            break;
+    }
+})
+
+console.log(comidaFrases);
+
+
+const inventory = [
+    {
+      name: 'Mobile phone',
+      price: 199
+    },
+    {
+      name: 'TV Samsung',
+      price: 459
+    },
+    {
+      name: 'Viaje a cancún',
+      price: 600
+    },
+    {
+      name: 'Mascarilla',
+      price: 1
+    }
+  ];
+  /*
+    [
+      'TV Samsung,',
+      'Viaje a Cancún'
+    ]
+  */
+
+const masDe300 = inventory.filter(objeto => objeto.price > 300);
+console.log(masDe300);
+
+
+const sentenceElements = [
+    'Me',
+    'llamo',
+    'Pablo',
+    'y',
+    'quiero',
+    'sentir',
+    'la',
+    'fuerza',
+    'con',
+    'javascript'
+    ];
+   
+// Resultado--> 'Me llamo XX y quiero sentir la fuerza con javascript'
+
+const frase = sentenceElements.reduce(function callback(a, b) {
+    return a + " " + b
+});
+
+console.log(frase);
